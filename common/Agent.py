@@ -129,7 +129,7 @@ class Agent(object):
 
     # discount roll out rewards
     def _discount_reward(self, rewards, final_value):
-        discounted_r = np.zeros_like(rewards)
+        discounted_r = np.zeros_like(rewards)   #构造一个和rewards维度相同 且值为0的矩阵
         running_add = final_value
         for t in reversed(range(0, len(rewards))):
             running_add = running_add * self.reward_gamma + rewards[t]
