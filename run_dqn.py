@@ -53,8 +53,8 @@ def run(env_id="CartPole-v0"):
               epsilon_decay=EPSILON_DECAY, max_grad_norm=MAX_GRAD_NORM,
               episodes_before_train=EPISODES_BEFORE_TRAIN)
 
-    episodes =[]
-    eval_rewards =[]
+    episodes = []
+    eval_rewards = []
     while dqn.n_episodes < MAX_EPISODES:
         dqn.interact()
         if dqn.n_episodes >= EPISODES_BEFORE_TRAIN:
@@ -68,8 +68,8 @@ def run(env_id="CartPole-v0"):
 
     episodes = np.array(episodes)
     eval_rewards = np.array(eval_rewards)
-    np.savetxt("./output/%s_dqn_episodes.txt"%env_id, episodes)
-    np.savetxt("./output/%s_dqn_eval_rewards.txt"%env_id, eval_rewards)
+    np.savetxt("./output/%s_dqn_episodes.txt" % env_id, episodes)
+    np.savetxt("./output/%s_dqn_eval_rewards.txt" % env_id, eval_rewards)
 
     plt.figure()
     plt.plot(episodes, eval_rewards)
@@ -77,7 +77,7 @@ def run(env_id="CartPole-v0"):
     plt.xlabel("Episode")
     plt.ylabel("Average Reward")
     plt.legend(["DQN"])
-    plt.savefig("./output/%s_dqn.png"%env_id)
+    plt.savefig("./output/%s_dqn.png" % env_id)
 
 
 if __name__ == "__main__":
